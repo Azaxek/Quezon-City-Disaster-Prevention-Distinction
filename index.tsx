@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { 
   ShieldAlert, 
@@ -572,11 +572,6 @@ const Footer = ({ setPage }: { setPage: (p: PageType) => void }) => (
 const App = () => {
   const [page, setPage] = useState<PageType>('home');
 
-  useEffect(() => {
-    // Small script to ensure everything is mounted before render to prevent blank screen
-    console.log("QCDPD App Initialized");
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 overflow-x-hidden">
       <Navbar currentPage={page} setPage={setPage} />
@@ -591,13 +586,9 @@ const App = () => {
   );
 };
 
-// Use DOMContentLoaded to ensure the root element exists before React attempts to attach
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('root');
-  if (container) {
-    const root = ReactDOM.createRoot(container);
-    root.render(<App />);
-  } else {
-    console.error("Critical Error: Root container not found. Page will render blank.");
-  }
-});
+// Standard React entry point logic for modern browser modules
+const container = document.getElementById('root');
+if (container) {
+  const root = ReactDOM.createRoot(container);
+  root.render(<App />);
+}

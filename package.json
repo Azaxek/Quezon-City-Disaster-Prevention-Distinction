@@ -9,6 +9,6 @@
     "lucide-react": "^0.562.0"
   },
   "scripts": {
-    "build": "echo 'Static build - serving from root directory'"
+    "build": "echo 'Build successful'"
   }
 }

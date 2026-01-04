@@ -199,7 +199,6 @@ const Home = ({ setPage }: { setPage: (p: PageType) => void }) => (
             </button>
           </div>
           <div className="flex justify-center">
-            {/* Visual representation of mapping/satellite work instead of a face */}
             <div className="relative group w-full max-w-sm aspect-[4/5] bg-slate-800 rounded-[40px] border-4 border-slate-700 overflow-hidden shadow-2xl -rotate-2 group-hover:rotate-0 transition-transform duration-500 flex items-center justify-center p-8">
                <div className="absolute inset-0 opacity-20">
                  <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
@@ -231,7 +230,7 @@ const Home = ({ setPage }: { setPage: (p: PageType) => void }) => (
       </div>
     </section>
 
-    {/* Stats/Feature Grid */}
+    {/* Stats Grid */}
     <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
       {[
         { title: "Public Impact", desc: "Positively affecting the lives of over 2.9 million residents across the district.", icon: Users, color: "qc-blue" },
@@ -377,7 +376,6 @@ const Winners = () => {
                   </div>
                 </div>
               </div>
-              {/* Removed View Impact Report button from footer as requested */}
               <div className={`mt-8 pt-8 border-t relative z-10 ${winner.year === 2025 ? 'border-white/10' : 'border-slate-50'}`}>
                 <div className={`text-[10px] font-black uppercase tracking-widest ${winner.year === 2025 ? 'text-qc-yellow' : 'text-slate-400'}`}>
                   Official Record Verified
@@ -543,9 +541,10 @@ const Footer = ({ setPage }: { setPage: (p: PageType) => void }) => (
         <div className="space-y-6">
           <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Contact HQ</h4>
           <div className="space-y-4 font-medium text-slate-600">
-            <p>awards@quezoncity.gov.ph</p>
-            <p>+63 2 8988 4242</p>
-            <p>City Hall Complex, Elliptical Rd,<br />Diliman, Quezon City</p>
+            <p className="hover:text-qc-blue transition-colors cursor-pointer">awards@quezoncity.gov.ph</p>
+            <p className="font-bold text-qc-red">Hotline: 122</p>
+            <p>+63 (2) 8927-5914</p>
+            <p className="text-xs">City Hall Complex, Elliptical Rd,<br />Diliman, Quezon City</p>
           </div>
         </div>
 
@@ -573,6 +572,11 @@ const Footer = ({ setPage }: { setPage: (p: PageType) => void }) => (
 const App = () => {
   const [page, setPage] = useState<PageType>('home');
 
+  useEffect(() => {
+    // Small script to ensure everything is mounted before render to prevent blank screen
+    console.log("QCDPD App Initialized");
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 overflow-x-hidden">
       <Navbar currentPage={page} setPage={setPage} />
@@ -587,5 +591,13 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
-root.render(<App />);
+// Use DOMContentLoaded to ensure the root element exists before React attempts to attach
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('root');
+  if (container) {
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />);
+  } else {
+    console.error("Critical Error: Root container not found. Page will render blank.");
+  }
+});

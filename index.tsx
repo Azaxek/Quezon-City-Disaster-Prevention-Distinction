@@ -150,52 +150,16 @@ const Home = ({ setPage }: { setPage: (p: PageType) => void }) => (
 
     {/* Spotlight Section */}
     <section className="px-6 max-w-7xl mx-auto">
-      <div className="bg-slate-900 rounded-[60px] p-8 md:p-20 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_#0038A822,_transparent)]" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-3 bg-qc-blue/30 text-blue-400 px-5 py-2 rounded-full text-xs font-black tracking-widest">
-              <Award className="w-5 h-5" />
-              2025 DISTINCTION WINNER
-            </div>
-            <h2 className="text-6xl md:text-8xl font-bebas text-white leading-none tracking-wider">
-              ARYAV <br /> <span className="text-qc-yellow">AGRAWAL</span>
-            </h2>
-            <div className="space-y-4 max-w-sm py-4">
-              <div className="h-1 w-12 bg-qc-red rounded-full" />
-              <p className="text-slate-400 leading-relaxed font-medium text-sm">
-                Honored for developing satellite-based disaster response systems serving 3,000+ regions.
-              </p>
-            </div>
-
+      <div className="bg-slate-900 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="flex items-center gap-6">
+          <div className="bg-qc-yellow text-slate-900 p-3 rounded-xl shrink-0">
+            <Trophy className="w-6 h-6" />
           </div>
-          <div className="flex justify-center">
-            <div className="relative group w-full max-w-sm aspect-[4/5] bg-slate-800 rounded-[40px] border-4 border-slate-700 overflow-hidden shadow-2xl -rotate-2 group-hover:rotate-0 transition-transform duration-500 flex items-center justify-center p-8">
-              <div className="absolute inset-0 opacity-20">
-                <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
-                  {Array.from({ length: 64 }).map((_, i) => (
-                    <div key={i} className="border-[0.5px] border-qc-blue/30" />
-                  ))}
-                </div>
-              </div>
-              <div className="relative space-y-6 text-center">
-                <div className="relative inline-block">
-                  <Satellite className="w-24 h-24 text-qc-yellow mx-auto mb-4 animate-pulse" />
-                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-qc-red rounded-full animate-ping" />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="text-2xl font-bebas text-white tracking-widest">SATELLITE INTEL</h4>
-                  <div className="flex justify-center gap-2">
-                    <MapIcon className="w-5 h-5 text-qc-blue" />
-                    <Navigation className="w-5 h-5 text-qc-red" />
-                  </div>
-                </div>
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 border-t border-slate-700 pt-4">
-                  Impact Mapping Infrastructure
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+          <div className="space-y-1">
+            <div className="flex items-center gap-3">
+              <h3 className="text-2xl font-bebas text-white tracking-wider">2025 WINNER: <span className="text-qc-yellow">ARYAV AGRAWAL</span></h3>
             </div>
+            <p className="text-slate-400 text-sm font-medium">Honored for developing satellite-based disaster response systems serving 3,000+ regions.</p>
           </div>
         </div>
       </div>

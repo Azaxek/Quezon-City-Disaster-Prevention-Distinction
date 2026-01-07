@@ -1,23 +1,23 @@
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import { 
-  ShieldAlert, 
-  Menu, 
-  X, 
-  ArrowRight, 
-  Trophy, 
-  Award, 
-  Search, 
-  History as HistoryIcon, 
-  Target, 
-  Users, 
-  ChevronRight, 
-  Send, 
-  Upload, 
-  User, 
-  Mail, 
-  FileText, 
+import {
+  ShieldAlert,
+  Menu,
+  X,
+  ArrowRight,
+  Trophy,
+  Award,
+  Search,
+  History as HistoryIcon,
+  Target,
+  Users,
+  ChevronRight,
+  Send,
+  Upload,
+  User,
+  Mail,
+  FileText,
   CheckCircle2,
   Twitter,
   Facebook,
@@ -29,55 +29,25 @@ import {
 } from 'lucide-react';
 
 // --- Types ---
-type PageType = 'home' | 'about' | 'winners' | 'nominate';
+type PageType = 'home' | 'about' | 'nominate';
 
-interface Winner {
-  year: number;
-  first: string;
-  second: string;
-  third: string;
-  description?: string;
-}
 
-// --- Constants ---
-const WINNERS_DATA: Winner[] = [
-  { 
-    year: 2025, 
-    first: "Aryav Agrawal", 
-    second: "Siddharth Verma", 
-    third: "Meera Patel",
-    description: "Founded company building satellite impact maps for 3,000+ disaster prone regions and developed 640 safety routes across public buildings in 3 countries."
-  },
-  { year: 2024, first: "Anjali Gupta", second: "Kenji Nakamura", third: "Linh Tran" },
-  { year: 2023, first: "Arjun Deshmukh", second: "Priya Varma", third: "Brandon Wu" },
-  { year: 2022, first: "Sanjay Malhotra", second: "Elena Park", third: "David Chang" },
-  { year: 2021, first: "Rohit Sharma", second: "Mei Ling Zhang", third: "Kavita Singh" },
-  { year: 2020, first: "Ishaan Patel", second: "Grace Kim", third: "Aditya Roy" },
-  { year: 2019, first: "Sarah Nguyen", second: "Vikram Seth", third: "Jun-ho Lee" },
-  { year: 2018, first: "Rajesh Koothrappali", second: "Sunita Reddy", third: "Liam Chen" },
-  { year: 2017, first: "Amiya Bose", second: "Ji-won Kim", third: "Rohan Khanna" },
-  { year: 2016, first: "Nathaniel Das", second: "Isha Ambani", third: "Felix Gao" },
-  { year: 2015, first: "Deepika Padukone", second: "Alex Wong", third: "Siddharth Anand" },
-  { year: 2014, first: "Rahul Gandhi", second: "Tiffany Low", third: "Manish Sisodia" },
-  { year: 2013, first: "Narendra Modi", second: "Hema Malini", third: "Vijay Kumar" }
-];
 
 // --- Components ---
 
 const Navbar = ({ currentPage, setPage }: { currentPage: PageType, setPage: (p: PageType) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'History' },
-    { id: 'winners', label: 'Winners' },
     { id: 'nominate', label: 'Nominate' },
   ];
 
   const handleNav = (id: PageType) => {
     setPage(id);
     setIsOpen(false);
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -95,7 +65,7 @@ const Navbar = ({ currentPage, setPage }: { currentPage: PageType, setPage: (p: 
 
         <div className="hidden md:flex items-center gap-8">
           {navItems.map(item => (
-            <button 
+            <button
               key={item.id}
               onClick={() => handleNav(item.id as PageType)}
               className={`text-sm font-bold uppercase tracking-widest transition-colors ${currentPage === item.id ? 'text-qc-blue' : 'text-slate-500 hover:text-qc-blue'}`}
@@ -103,7 +73,7 @@ const Navbar = ({ currentPage, setPage }: { currentPage: PageType, setPage: (p: 
               {item.label}
             </button>
           ))}
-          <button 
+          <button
             onClick={() => handleNav('nominate')}
             className="bg-qc-red text-white px-6 py-2.5 rounded-xl font-bold text-xs shadow-lg shadow-red-200 hover:scale-105 active:scale-95 transition-all"
           >
@@ -120,7 +90,7 @@ const Navbar = ({ currentPage, setPage }: { currentPage: PageType, setPage: (p: 
         <div className="md:hidden absolute top-20 left-4 right-4 glass rounded-2xl p-6 shadow-2xl animate-in slide-in-from-top-4">
           <div className="flex flex-col gap-4">
             {navItems.map(item => (
-              <button 
+              <button
                 key={item.id}
                 onClick={() => handleNav(item.id as PageType)}
                 className={`text-left text-lg font-bebas tracking-widest py-2 border-b border-slate-100 ${currentPage === item.id ? 'text-qc-blue' : 'text-slate-500'}`}
@@ -148,7 +118,7 @@ const Home = ({ setPage }: { setPage: (p: PageType) => void }) => (
             Quezon City's Highest Honor
           </div>
           <h1 className="text-6xl md:text-9xl font-bebas text-slate-900 leading-[0.85] tracking-tight">
-            FORGING <span className="text-qc-blue">RESILIENCE</span> <br /> 
+            FORGING <span className="text-qc-blue">RESILIENCE</span> <br />
             <span className="text-qc-red">SAVING</span> LIVES.
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-lg leading-relaxed font-medium">
@@ -163,7 +133,7 @@ const Home = ({ setPage }: { setPage: (p: PageType) => void }) => (
             </button>
           </div>
         </div>
-        
+
         <div className="relative animate-in fade-in slide-in-from-right-8 duration-700">
           <div className="absolute -inset-4 bg-gradient-to-tr from-qc-blue to-qc-red rounded-3xl opacity-10 blur-3xl" />
           <div className="relative rounded-[60px] overflow-hidden border-[16px] border-white shadow-2xl rotate-3 animate-float aspect-square max-w-lg mx-auto">
@@ -191,39 +161,40 @@ const Home = ({ setPage }: { setPage: (p: PageType) => void }) => (
             <h2 className="text-6xl md:text-8xl font-bebas text-white leading-none tracking-wider">
               ARYAV <br /> <span className="text-qc-yellow">AGRAWAL</span>
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed max-w-md">
-              Founded company building satellite impact maps for 3,000+ disaster prone regions, and developed 640 safety routes across public buildings in 3 countries. A global leader in technology-driven disaster mitigation.
-            </p>
-            <button onClick={() => setPage('winners')} className="text-white font-bold flex items-center gap-3 group border-b border-white/20 pb-2 hover:border-qc-yellow transition-all">
-              View All Past Winners <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <div className="space-y-4 max-w-sm py-4">
+              <div className="h-1 w-12 bg-qc-red rounded-full" />
+              <p className="text-slate-400 leading-relaxed font-medium text-sm">
+                Honored for developing satellite-based disaster response systems serving 3,000+ regions.
+              </p>
+            </div>
+
           </div>
           <div className="flex justify-center">
             <div className="relative group w-full max-w-sm aspect-[4/5] bg-slate-800 rounded-[40px] border-4 border-slate-700 overflow-hidden shadow-2xl -rotate-2 group-hover:rotate-0 transition-transform duration-500 flex items-center justify-center p-8">
-               <div className="absolute inset-0 opacity-20">
-                 <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
-                    {Array.from({ length: 64 }).map((_, i) => (
-                      <div key={i} className="border-[0.5px] border-qc-blue/30" />
-                    ))}
-                 </div>
-               </div>
-               <div className="relative space-y-6 text-center">
-                 <div className="relative inline-block">
-                    <Satellite className="w-24 h-24 text-qc-yellow mx-auto mb-4 animate-pulse" />
-                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-qc-red rounded-full animate-ping" />
-                 </div>
-                 <div className="space-y-2">
-                    <h4 className="text-2xl font-bebas text-white tracking-widest">SATELLITE INTEL</h4>
-                    <div className="flex justify-center gap-2">
-                      <MapIcon className="w-5 h-5 text-qc-blue" />
-                      <Navigation className="w-5 h-5 text-qc-red" />
-                    </div>
-                 </div>
-                 <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 border-t border-slate-700 pt-4">
-                    Impact Mapping Infrastructure
-                 </div>
-               </div>
-               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 opacity-20">
+                <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
+                  {Array.from({ length: 64 }).map((_, i) => (
+                    <div key={i} className="border-[0.5px] border-qc-blue/30" />
+                  ))}
+                </div>
+              </div>
+              <div className="relative space-y-6 text-center">
+                <div className="relative inline-block">
+                  <Satellite className="w-24 h-24 text-qc-yellow mx-auto mb-4 animate-pulse" />
+                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-qc-red rounded-full animate-ping" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="text-2xl font-bebas text-white tracking-widest">SATELLITE INTEL</h4>
+                  <div className="flex justify-center gap-2">
+                    <MapIcon className="w-5 h-5 text-qc-blue" />
+                    <Navigation className="w-5 h-5 text-qc-red" />
+                  </div>
+                </div>
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 border-t border-slate-700 pt-4">
+                  Impact Mapping Infrastructure
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
             </div>
           </div>
         </div>
@@ -282,10 +253,10 @@ const About = () => (
       <div className="relative rounded-[60px] overflow-hidden group shadow-2xl">
         <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200" alt="Team effort" className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-1000" />
         <div className="absolute inset-0 bg-qc-blue/40 flex items-center justify-center">
-           <div className="text-center text-white px-8">
-             <h4 className="text-7xl font-bebas mb-2">12 YEARS STRONG</h4>
-             <p className="text-sm font-black uppercase tracking-[0.4em]">Honoring the Guardians of Manila</p>
-           </div>
+          <div className="text-center text-white px-8">
+            <h4 className="text-7xl font-bebas mb-2">12 YEARS STRONG</h4>
+            <p className="text-sm font-black uppercase tracking-[0.4em]">Honoring the Guardians of Manila</p>
+          </div>
         </div>
       </div>
 
@@ -305,93 +276,11 @@ const About = () => (
   </div>
 );
 
-const Winners = () => {
-  const [search, setSearch] = useState('');
-  
-  const filtered = WINNERS_DATA.filter(w => 
-    w.year.toString().includes(search) || 
-    w.first.toLowerCase().includes(search.toLowerCase())
-  );
 
-  return (
-    <div className="pb-32 pt-20 px-6">
-      <div className="max-w-7xl mx-auto space-y-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div className="space-y-4">
-            <h2 className="text-6xl md:text-9xl font-bebas tracking-tighter text-slate-900">THE ARCHIVE</h2>
-            <p className="text-lg text-slate-500 font-medium max-w-lg">
-              A historical record of excellence in disaster prevention, featuring leaders who have shaped our city's resilience.
-            </p>
-          </div>
-          <div className="relative group w-full md:w-80">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5 group-focus-within:text-qc-blue transition-colors" />
-            <input 
-              type="text" 
-              placeholder="Search winners or years..." 
-              className="w-full pl-12 pr-6 py-4 bg-white border-2 border-slate-100 rounded-2xl outline-none focus:border-qc-blue shadow-sm transition-all"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((winner) => (
-            <div 
-              key={winner.year} 
-              className={`relative overflow-hidden group rounded-[40px] transition-all duration-500 p-10 flex flex-col justify-between min-h-[400px]
-                ${winner.year === 2025 ? 'bg-slate-900 text-white scale-105 shadow-2xl z-10' : 'bg-white border border-slate-100 hover:shadow-xl hover:-translate-y-2'}
-              `}
-            >
-              <div className={`absolute -top-4 -right-4 font-bebas text-9xl opacity-5 leading-none select-none ${winner.year === 2025 ? 'text-white' : 'text-slate-900'}`}>
-                {winner.year}
-              </div>
-
-              <div className="space-y-8 relative z-10">
-                <div className="flex items-center justify-between">
-                  <div className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full ${winner.year === 2025 ? 'bg-qc-yellow text-slate-900' : 'bg-qc-blue/10 text-qc-blue'}`}>
-                    {winner.year} Edition
-                  </div>
-                  {winner.year === 2025 && <Trophy className="w-8 h-8 text-qc-yellow animate-pulse" />}
-                </div>
-
-                <div className="space-y-2">
-                  <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${winner.year === 2025 ? 'text-blue-400' : 'text-slate-400'}`}>Distinction Winner</p>
-                  <h3 className="text-4xl font-bebas tracking-wide leading-none">{winner.first}</h3>
-                  {winner.description && (
-                    <p className="text-xs text-slate-400 italic mt-2 line-clamp-3 leading-relaxed">
-                      {winner.description}
-                    </p>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="space-y-1">
-                    <p className="text-[9px] font-black uppercase tracking-tighter text-slate-400">2nd Place</p>
-                    <p className={`font-bold text-sm ${winner.year === 2025 ? 'text-white/80' : 'text-slate-600'}`}>{winner.second}</p>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-[9px] font-black uppercase tracking-tighter text-slate-400">3rd Place</p>
-                    <p className={`font-bold text-sm ${winner.year === 2025 ? 'text-white/80' : 'text-slate-600'}`}>{winner.third}</p>
-                  </div>
-                </div>
-              </div>
-              <div className={`mt-8 pt-8 border-t relative z-10 ${winner.year === 2025 ? 'border-white/10' : 'border-slate-50'}`}>
-                <div className={`text-[10px] font-black uppercase tracking-widest ${winner.year === 2025 ? 'text-qc-yellow' : 'text-slate-400'}`}>
-                  Official Record Verified
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Nominate = () => {
   const [submitted, setSubmitted] = useState(false);
-  
+
   if (submitted) {
     return (
       <div className="max-w-2xl mx-auto px-6 py-40 text-center animate-in zoom-in-95 duration-500">
@@ -531,10 +420,10 @@ const Footer = ({ setPage }: { setPage: (p: PageType) => void }) => (
         <div className="space-y-6">
           <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Navigation</h4>
           <ul className="space-y-4 font-bold text-slate-600">
-            <li><button onClick={() => { window.scrollTo(0,0); setPage('home'); }} className="hover:text-qc-blue transition-colors">Home Portal</button></li>
-            <li><button onClick={() => { window.scrollTo(0,0); setPage('about'); }} className="hover:text-qc-blue transition-colors">Our History</button></li>
-            <li><button onClick={() => { window.scrollTo(0,0); setPage('winners'); }} className="hover:text-qc-blue transition-colors">Winners Archive</button></li>
-            <li><button onClick={() => { window.scrollTo(0,0); setPage('nominate'); }} className="hover:text-qc-blue transition-colors">Nominations</button></li>
+            <li><button onClick={() => { window.scrollTo(0, 0); setPage('home'); }} className="hover:text-qc-blue transition-colors">Home Portal</button></li>
+            <li><button onClick={() => { window.scrollTo(0, 0); setPage('about'); }} className="hover:text-qc-blue transition-colors">Our History</button></li>
+
+            <li><button onClick={() => { window.scrollTo(0, 0); setPage('nominate'); }} className="hover:text-qc-blue transition-colors">Nominations</button></li>
           </ul>
         </div>
 
@@ -578,7 +467,7 @@ const App = () => {
       <main className="flex-grow pt-24">
         {page === 'home' && <Home setPage={setPage} />}
         {page === 'about' && <About />}
-        {page === 'winners' && <Winners />}
+
         {page === 'nominate' && <Nominate />}
       </main>
       <Footer setPage={setPage} />

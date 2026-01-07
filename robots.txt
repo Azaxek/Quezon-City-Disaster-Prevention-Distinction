@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qcdpd.quezoncity.gov.ph/sitemap.xml

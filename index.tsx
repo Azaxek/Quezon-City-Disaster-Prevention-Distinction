@@ -215,7 +215,7 @@ const About = () => (
       </div>
 
       <div className="relative rounded-[60px] overflow-hidden group shadow-2xl">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200" alt="Team effort" className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-1000" />
+        <img src="/quezon_landmark.png" alt="Quezon Memorial Shrine" className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-1000" />
         <div className="absolute inset-0 bg-qc-blue/40 flex items-center justify-center">
           <div className="text-center text-white px-8">
             <h4 className="text-7xl font-bebas mb-2">12 YEARS STRONG</h4>

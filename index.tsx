@@ -219,7 +219,7 @@ const About = () => (
       </div>
 
       <div className="relative rounded-[60px] overflow-hidden group shadow-2xl">
-        <img src="/public/quezon_landmark.png" alt="Quezon Memorial Shrine" className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-1000" />
+        <img src="/quezon_landmark.png" alt="Quezon Memorial Shrine" className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-1000" />
         <div className="absolute inset-0 bg-qc-blue/40 flex items-center justify-center">
           <div className="text-center text-white px-8">
             <h4 className="text-7xl font-bebas mb-2">12 YEARS STRONG</h4>
@@ -416,7 +416,7 @@ const Footer = ({ setPage }: { setPage: (p: PageType) => void }) => (
       </div>
 
       <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-bold text-slate-400 uppercase tracking-widest">
-        <p>© 2025 Quezon City Disaster Prevention Distinction</p>
+        <p>© 2026 Quezon City Disaster Prevention Distinction</p>
         <div className="flex gap-8">
           <a href="#" className="hover:text-qc-blue">Privacy</a>
           <a href="#" className="hover:text-qc-blue">Terms</a>
